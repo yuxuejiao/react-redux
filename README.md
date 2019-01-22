@@ -1,12 +1,11 @@
 ### react-redux
-the official Redux UI binding library for React.   
-it lets your react components read data from a redux store, and dispatch actions to the store to update data.
+Redux的官方React绑定库。它能够使你的React组件从Redux store中读取数据，并且向store派发actions，从而更新数据。
 
 API: 
-    - 1、 Provider: provide store as a prop to the rest of your app   
+    - 1、 Provider: 能够使所有的组件都能访问到redux store中的数据。  
             在Provider标签包围的所有组件里，都能通过prop拿到store。而不用在每个组件中单独引入。   
     - 2、 connect:  for components to read values from the Redux store (and re-read the values when the store updates).   
-
+    
 connect: 
 - 1、mapStateToProps      
    * called every time the store state changes.    
@@ -32,6 +31,12 @@ connect:
     Every time an action is dispatched, it calls store.getState() and checks to see if lastState === currentState. 
     If the two state values are identical by reference, then it will not re-run your mapStateToProps function.
                               
-- 2、mapDispatchToProps： 
+- 2、mapDispatchToProps：dispatch actions to the store   
+    two ways: 
+        * 当没有定义mapDispatchToProps，可以直接通过props中获得redux store中的dispatch方法。（props.dispatch(action creators)）
+        * 定义mapDispatchToProps.
+        
+        
+        
             
             
