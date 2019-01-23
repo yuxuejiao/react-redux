@@ -1,7 +1,7 @@
 ### react-redux
 Redux的官方React绑定库。它能够使你的React组件从Redux store中读取数据，并且向store派发actions，从而更新数据。
 
-API: 
+API:    
     - 1、 Provider: 能够使所有的组件都能访问到redux store中的数据。  
             在Provider标签包围的所有组件里，都能通过prop拿到store。而不用在每个组件中单独引入。   
     - 2、 connect: 组件能够从store的状态树中读取所需要的值，当store中的状态变更，组件会重新读取值，重新渲染。
@@ -18,22 +18,19 @@ connect:
         }
       }   
     ```    
-    **参数**   
-    - 1、state   
-        store中的状态树                     
-    - 2、ownProps(optional)
-    **返回值**
-        * 对象中的每个变量，在组件中都能从props中获取
-        * 对象中的变量的值，会决定你的组件是否重新渲染
+   参数：state, ownProps    
+   返回值
+     * 对象中的每个变量，在组件中都能从props中获取
+     * 对象中的变量的值，会决定你的组件是否重新渲染
    
     每次分发action，它会调用store.getState()，校验lastState是否等于currentState。如果两个state的值都是同一引用，它不会触发mapStateProps
     方法，从而不会重新渲染。   
 
-- 2、mapDispatchToProps：dispatch action to store 
-    分发action的两种方式:
+- 2、mapDispatchToProps：dispatch action to store    
+    分发action的两种方式:   
     * 不定义mapDispatchProps，直接通过props.dispatch(action creators)。
-    * 定义mapDispatchProps。
-       参数：dispatch, props
+    * 定义mapDispatchProps。   
+       参数：dispatch, props   
         ```
             const increment = () => ({ type: 'INCREMENT' })
             const decrement = () => ({ type: 'DECREMENT' })
