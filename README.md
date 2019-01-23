@@ -89,7 +89,6 @@ The inner function receives the store methods dispatch and getState as parameter
 参数是dispatch和getState这两个 Redux 方法   
 ```
 const actionCreators = ()=>{
-const actionCreators = ()=>{
     return (dispatch, getState)=>{
         
     }
