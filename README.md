@@ -45,8 +45,7 @@ connect:
               }
             }
         ```
-        使用bindActionCreators(actionCreators, dispatch):  把一个 value 为不同 action creator 的对象，转成拥有同名 key 的对象。
-        同时使用 dispatch 对每个 action creator 进行包装，以便可以直接调用它们。
+        使用bindActionCreators(actionCreators, dispatch):  自动把多个action创建函数绑定到dispatch方法上
         ```
             import { bindActionCreators } from 'redux'
             
@@ -79,7 +78,24 @@ connect:
            }
         ```
     
+### redux-thunk 
+Redux Thunk middleware allows you to write action creators that return a function instead of an action. 
+The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. 
+The inner function receives the store methods dispatch and getState as parameters. 
+同步action：创建action和dispatch action creator(action creator返回的是对象)到 reducer这个过程是同步的。         
+实现异步action就要延迟dispatch action creator这一步。     
+高阶函数 ---> dispatch的action creator返回从action对象变为函数   
+当action创建函数返回为函数时，函数会被中间件redux-thunk执行，该函数并不是纯函数，在其中可以执行异步操作，可以dispatch对象。返回的函数的
+参数是dispatch和getState这两个 Redux 方法   
+```
+const actionCreators = ()=>{
+const actionCreators = ()=>{
+    return (dispatch, getState)=>{
         
+    }
+}
+```
+
         
         
             
