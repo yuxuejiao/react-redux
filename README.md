@@ -4,11 +4,11 @@ Redux的官方React绑定库。它能够使你的React组件从Redux store中读
 API:    
     - 1、 Provider: 能够使所有的组件都能访问到redux store中的数据。  
             在Provider标签包围的所有组件里，都能通过prop拿到store。而不用在每个组件中单独引入。   
-    - 2、 connect: 组件能够从store的状态树中读取所需要的值，当store中的状态变更，组件会重新读取值，重新渲染。
+    - 2、 connect: 组件能够从store的状态树中读取所需要的值，当store中的状态变更，组件会重新读取值，重新渲染。   
 connect: 
 - 1、mapStateToProps      
    * store中的state改变，会触发该方法  
-   * 参数为store的整个状态树，返回值必须是一个纯对象，其中包含的值是该组件所需要的数据。
+   * 参数为store的整个状态树，返回值必须是一个纯对象，其中包含的值是该组件所需要的数据。   
     **定义 mapStateProps**   
     mapStateToProps 必须定义为一个纯函数.      
     ```
@@ -30,7 +30,7 @@ connect:
     分发action的两种方式:   
     * 不定义mapDispatchProps，直接通过props.dispatch(action creators)。
     * 定义mapDispatchProps。   
-       参数：dispatch, props   
+       参数：dispatch, ownProps(optional)      
         ```
             const increment = () => ({ type: 'INCREMENT' })
             const decrement = () => ({ type: 'DECREMENT' })
@@ -81,8 +81,8 @@ connect:
 ### redux-thunk 
 Redux Thunk middleware allows you to write action creators that return a function instead of an action. 
 The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. 
-The inner function receives the store methods dispatch and getState as parameters. 
-同步action：创建action和dispatch action creator(action creator返回的是对象)到 reducer这个过程是同步的。         
+The inner function receives the store methods dispatch and getState as parameters.    
+同步action：创建action和dispatch action creator(action creator返回的是对象)到 reducer这个过程是同步的。            
 实现异步action就要延迟dispatch action creator这一步。     
 高阶函数 ---> dispatch的action creator返回从action对象变为函数   
 当action创建函数返回为函数时，函数会被中间件redux-thunk执行，该函数并不是纯函数，在其中可以执行异步操作，可以dispatch对象。返回的函数的
